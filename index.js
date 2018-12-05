@@ -90,10 +90,10 @@ function runApp (main, app, defaultOptions, options) {
     if (ret instanceof Promise) {
       ret.then(startServer, reject)
     } else {
-      startServer()
+      startServer(ret)
     }
 
-    function startServer () {
+    function startServer (onStarted) {
       server = app.listen(opts.port, opts.host, (err) => {
         if (err) {
           return reject(err)
@@ -109,7 +109,15 @@ function runApp (main, app, defaultOptions, options) {
         }
 
         serverStarted = true
-        resolve({ app, server })
+        const onStartedData = { app, server, opts }
+
+        if (typeof onStarted === 'function') {
+          let ret = onStarted(onStartedData)
+          if (ret instanceof Promise) {
+            return ret.then(() => resolve(onStartedData), reject)
+          }
+        }
+        resolve(onStartedData)
       })
 
       // Handling for server client errors
