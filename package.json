@@ -5,37 +5,29 @@
   "main": "index.js",
   "scripts": {
     "test": "standard && mocha",
-    "prepublish": "npm test",
+    "prepublishOnly": "npm test",
     "postpublish": "git push && git push --tags"
   },
   "keywords": [
     "express",
-    "framework",
-    "service oriented architecture",
-    "microservices"
+    "framework"
   ],
-  "author": "Wes <wes@wesleytodd.com>",
+  "author": "Wes Todd <wes@wesleytodd.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "wesleytodd/2ex"
   },
-  "peerDependencies": {
-    "express": ">=4 || >=5"
-  },
   "devDependencies": {
-    "express": "^5.0.0-alpha.6",
-    "happiness": "^10.0.2",
     "mocha": "^4.0.1",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "supertest": "^3.3.0"
   },
   "dependencies": {
-    "commander": "^2.11.0",
+    "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
-    "import-lazy": "^3.0.0",
-    "loggerr": "^1.9.0",
+    "express": "^5.0.0-alpha.7",
     "node-bash-title": "0.0.2",
-    "run-parallel": "^1.1.6",
-    "runnable": "^3.0.0"
+    "response-time": "^2.3.2"
   }
 }
