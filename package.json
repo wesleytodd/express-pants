@@ -1,6 +1,6 @@
 {
   "name": "2ex",
-  "version": "1.0.0-1",
+  "version": "1.0.0-2",
   "description": "An opinionated express application framework",
   "main": "index.js",
   "scripts": {
