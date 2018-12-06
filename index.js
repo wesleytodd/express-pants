@@ -21,20 +21,17 @@ module.exports = function createApp (main = () => {}, defaultOptions = {}) {
     parseCookies: false
   }, defaultOptions)
 
-  // Create the express app
-  const app = opts.express()
-
-  // Set default options
-  app.set('2exDefaultOptions', opts)
-
   // Bind run method to these options
-  return runApp.bind(null, main, app, opts)
+  return runApp.bind(null, main, opts)
 }
 
-function runApp (main, app, defaultOptions, options) {
+function runApp (main, defaultOptions, options) {
   return new Promise((resolve, reject) => {
     // Merge the provided options over the default options
     let opts = Object.assign({}, defaultOptions, options)
+
+    // Create the express app
+    const app = opts.express()
 
     // Set the process title
     process.title = opts.title
@@ -73,6 +70,7 @@ function runApp (main, app, defaultOptions, options) {
     app.set('trust proxy', opts.trustProxy)
     app.set('query parser', opts.queryParser)
     app.set('2exOptions', opts)
+    app.set('2exDefaultOptions', defaultOptions)
 
     // Add common middleware
     if (opts.responseTime) {
