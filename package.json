@@ -1,6 +1,6 @@
 {
   "name": "express-pants",
-  "version": "1.0.0-3",
+  "version": "1.0.0",
   "description": "An opinionated express application framework",
   "main": "index.js",
   "scripts": {
