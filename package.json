@@ -1,7 +1,7 @@
 {
   "name": "express-pants",
   "version": "1.0.0",
-  "description": "An opinionated express application framework",
+  "description": "A semi-opinionated way to setup Express apps",
   "main": "index.js",
   "scripts": {
     "test": "standard && mocha",
