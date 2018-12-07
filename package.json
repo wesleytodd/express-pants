@@ -1,0 +1,34 @@
+{
+  "name": "express-pants",
+  "version": "1.0.0-3",
+  "description": "An opinionated express application framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && mocha",
+    "prepublishOnly": "npm test",
+    "postpublish": "git push && git push --tags"
+  },
+  "keywords": [
+    "express",
+    "framework"
+  ],
+  "author": "Wes Todd <wes@wesleytodd.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "wesleytodd/express-pants"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "standard": "^10.0.3",
+    "supertest": "^3.3.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^5.0.0-alpha.7",
+    "helmet": "^3.15.0",
+    "node-bash-title": "0.0.2",
+    "response-time": "^2.3.2"
+  }
+}
