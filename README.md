@@ -1,8 +1,8 @@
-# 2ex (pronounced 2X)
+# Some nice pants for your Express App to wear
 
-[![NPM Version](https://img.shields.io/npm/v/2ex.svg)](https://npmjs.org/package/2ex)
-[![NPM Downloads](https://img.shields.io/npm/dm/2ex.svg)](https://npmjs.org/package/2ex)
-[![Build Status](https://travis-ci.org/wesleytodd/2ex.svg?branch=master)](https://travis-ci.org/wesleytodd/2ex)
+[![NPM Version](https://img.shields.io/npm/v/express-pants.svg)](https://npmjs.org/package/express-pants)
+[![NPM Downloads](https://img.shields.io/npm/dm/express-pants.svg)](https://npmjs.org/package/express-pants)
+[![Build Status](https://travis-ci.org/wesleytodd/express-pants.svg?branch=master)](https://travis-ci.org/wesleytodd/express-pants)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
 
 A semi-opinionated framework for setting up Express apps.
@@ -10,13 +10,13 @@ A semi-opinionated framework for setting up Express apps.
 ## Install
 
 ```
-$ npm install --save 2ex
+$ npm install --save express-pants
 ```
 
 ## Usage
 
 ```javascript
-const createApp = require('2ex')
+const createApp = require('express-pants')
 
 const runApp = createApp((app, opts = {}) => {
   // Handle app errors
@@ -54,4 +54,5 @@ with the goal of reducing boilerplate in your applications.  Here is a list of s
 - Catch, report and exit on `uncaughtException` and `unhandledRejection`
 - Handle and report server `clientError`s
 - Parses JSON bodies
-- Parses cookies (off by default, turn on by passing `options.parseCookies`
+- Parses cookies (off by default, turn on by passing `options.parseCookies`)
+- [Helmet](https://www.npmjs.com/package/helmet) (turned off by default, but turn on with `options.helmet`)

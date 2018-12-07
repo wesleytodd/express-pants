@@ -5,6 +5,7 @@ const setTitle = require('node-bash-title')
 const responseTime = require('response-time')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+const helmet = require('helmet')
 
 module.exports = function createApp (main = () => {}, defaultOptions = {}) {
   // Default options
@@ -13,12 +14,13 @@ module.exports = function createApp (main = () => {}, defaultOptions = {}) {
     port: 0,
     host: '127.0.0.1',
     exposeExpress: false,
-    title: main.name || '2EX Application',
+    title: main.name || 'Express Pants Application',
     trustProxy: false,
     queryParser: 'simple',
     responseTime: {},
     parseJson: {},
-    parseCookies: false
+    parseCookies: false,
+    helmet: false
   }, defaultOptions)
 
   // Bind run method to these options
@@ -69,8 +71,8 @@ function runApp (main, defaultOptions, options) {
     app.set('host', opts.host)
     app.set('trust proxy', opts.trustProxy)
     app.set('query parser', opts.queryParser)
-    app.set('2exOptions', opts)
-    app.set('2exDefaultOptions', defaultOptions)
+    app.set('expressPantsOptions', opts)
+    app.set('expressPantsDefaultOptions', defaultOptions)
 
     // Add common middleware
     if (opts.responseTime) {
@@ -81,6 +83,9 @@ function runApp (main, defaultOptions, options) {
     }
     if (opts.parseCookies) {
       app.use(cookieParser(opts.parseCookies.secret || null, opts.parseCookies))
+    }
+    if (opts.helmet) {
+      app.use(helmet(opts.helmet))
     }
 
     // Call main

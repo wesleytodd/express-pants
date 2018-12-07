@@ -5,7 +5,7 @@ var assert = require('assert')
 var supertest = require('supertest')
 var createApp = require('../')
 
-describe('2ex', function () {
+describe('express-pants', function () {
   it('should create and start an express app', function (done) {
     const runApp = createApp((app, opts) => {
       app.get('/', (req, res) => {
@@ -17,7 +17,7 @@ describe('2ex', function () {
 
     runApp().then(({ app, server }) => {
       assert(app)
-      assert(app.get('2exDefaultOptions').message, 'world')
+      assert(app.get('expressPantsDefaultOptions').message, 'world')
 
       supertest(server)
         .get('/')

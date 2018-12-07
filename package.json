@@ -1,5 +1,5 @@
 {
-  "name": "2ex",
+  "name": "express-pants",
   "version": "1.0.0-3",
   "description": "An opinionated express application framework",
   "main": "index.js",
@@ -16,7 +16,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "wesleytodd/2ex"
+    "url": "wesleytodd/express-pants"
   },
   "devDependencies": {
     "mocha": "^4.0.1",
@@ -27,6 +27,7 @@
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "express": "^5.0.0-alpha.7",
+    "helmet": "^3.15.0",
     "node-bash-title": "0.0.2",
     "response-time": "^2.3.2"
   }
