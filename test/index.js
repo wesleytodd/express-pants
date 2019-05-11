@@ -12,12 +12,16 @@ describe('express-pants', function () {
         res.send(`hello ${opts.message}`)
       })
     }, {
+      pino: {
+        level: 'error'
+      },
       message: 'world'
     })
 
     runApp().then(({ app, server }) => {
       assert(app)
       assert(app.get('expressPantsDefaultOptions').message, 'world')
+      assert.strictEqual(app.get('log').constructor.name, 'Pino')
 
       supertest(server)
         .get('/')

@@ -6,6 +6,7 @@ const responseTime = require('response-time')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const helmet = require('helmet')
+const pinoHttp = require('pino-http')
 
 module.exports = function createApp (main = () => {}, defaultOptions = {}) {
   // Default options
@@ -20,7 +21,8 @@ module.exports = function createApp (main = () => {}, defaultOptions = {}) {
     responseTime: {},
     parseJson: {},
     parseCookies: false,
-    helmet: false
+    helmet: false,
+    pino: true
   }, defaultOptions)
 
   // Bind run method to these options
@@ -86,6 +88,11 @@ function runApp (main, defaultOptions, options) {
     }
     if (opts.helmet) {
       app.use(helmet(opts.helmet))
+    }
+    if (opts.pino) {
+      const mw = pinoHttp(opts.pino)
+      app.set('log', mw.logger)
+      app.use(mw)
     }
 
     // Call main
