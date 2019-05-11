@@ -1,6 +1,6 @@
 'use strict'
 // vim: set ts=2 sw=2 expandtab:
-var {describe, it} = require('mocha')
+var { describe, it } = require('mocha')
 var assert = require('assert')
 var supertest = require('supertest')
 var createApp = require('../')
