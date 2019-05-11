@@ -22,7 +22,7 @@ module.exports = function createApp (main = () => {}, defaultOptions = {}) {
     parseJson: {},
     parseCookies: false,
     helmet: false,
-    pino: true
+    pino: {}
   }, defaultOptions)
 
   // Bind run method to these options
