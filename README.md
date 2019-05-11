@@ -34,7 +34,8 @@ runApp({
   message: 'World'
 }).then(({ app, server }) => {
   const addr = server.address()
-  console.log(`Server started at http://${app.get('host')}:${addr.port}`)
+  // Log is a Pino logger
+  app.get('log').info(`Server started at http://${app.get('host')}:${addr.port}`)
 })
 ```
 
@@ -56,3 +57,4 @@ with the goal of reducing boilerplate in your applications.  Here is a list of s
 - Parses JSON bodies
 - Parses cookies (off by default, turn on by passing `options.parseCookies`)
 - [Helmet](https://www.npmjs.com/package/helmet) (turned off by default, but turn on with `options.helmet`)
+- [Pino](https://www.npmjs.com/package/pino) logging with `pino-http`
