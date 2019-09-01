@@ -32,7 +32,7 @@ module.exports = function createApp (main = () => {}, defaultOptions = {}) {
 function runApp (main, defaultOptions, options) {
   return new Promise((resolve, reject) => {
     // Merge the provided options over the default options
-    let opts = Object.assign({}, defaultOptions, options)
+    const opts = Object.assign({}, defaultOptions, options)
 
     // Create the express app
     const app = opts.express()
@@ -96,7 +96,7 @@ function runApp (main, defaultOptions, options) {
     }
 
     // Call main
-    let ret = main(app, opts)
+    const ret = main(app, opts)
     if (ret instanceof Promise) {
       ret.then(startServer, reject)
     } else {
@@ -122,7 +122,7 @@ function runApp (main, defaultOptions, options) {
         const onStartedData = { app, server, opts }
 
         if (typeof onStarted === 'function') {
-          let ret = onStarted(onStartedData)
+          const ret = onStarted(onStartedData)
           if (ret instanceof Promise) {
             return ret.then(() => resolve(onStartedData), reject)
           }
